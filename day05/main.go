@@ -15,59 +15,46 @@ package main
 
 import (
 	"fmt"
+	"sort"
 )
 
+type StringScilce []rune
+
+func (s StringScilce) Len() int {
+	return len(s)
+}
+func (s StringScilce) Less(i, j int) bool {
+	return s[i] < s[j]
+}
+func (s StringScilce) Swap(i, j int) {
+	s[i], s[j] = s[j], s[i]
+}
+
+// 滑动窗口
 func checkInclusion(s1 string, s2 string) bool {
 	if len(s1) == 0 || len(s2) == 0 {
 		return false
 	}
-	// 计算出窗口的长度
-	l := len(s1)
-	// 定义一个集合类型，存放字符和出现的次数
-	var m map[rune]int
-	m = make(map[rune]int, l)
-	for _, v := range s1 {
-		if _, ok := m[v]; ok {
-			m[v] += 1
-		} else {
-			m[v] = 1
+	sr1 := []rune(s1)
+	sort.Sort(StringScilce(sr1))
+	// 循环遍历长字符串
+	for i, _ := range s2 {
+		// 结束条件
+		if i == len(s2)-len(s1) {
+			break
 		}
-	}
-	// fmt.Println(m)
-	var test map[rune]int
-	sign := 0
-	test = make(map[rune]int, l)
-	// 遍历s2，判断连续的三个数是否存在与m相同
-	for i := 0; i < len(s2)-(l-1); i++ {
-		for j := i; j <= i+l-1; j++ {
-
-			if _, ok := test[rune(s2[j])]; ok {
-				test[rune(s2[j])] += 1
-			} else {
-				test[rune(s2[j])] = 1
-			}
-		}
-		// fmt.Println(s2[i])
-		// 循环m
-		for k, v := range m {
-			if test[k] != v {
-				sign = 1 //当前没有找到
-				test = make(map[rune]int, l)
-				sign = 0
-				break
-			}
-			sign++
-		}
-		// fmt.Println(test)
-		// fmt.Println(s2[i])
-		if sign == len(m) {
-			// fmt.Println(m)
+		// 开始滑动窗口,获得需要比较的字符串
+		str := s2[i : i+len(s1)]
+		// fmt.Println(str)
+		sr2 := []rune(str)
+		// 排序数组
+		sort.Sort(StringScilce(sr2))
+		if string(sr1) == string(sr2) {
 			return true
 		}
 	}
 	return false
 }
-
 func main() {
-	fmt.Println(checkInclusion("ab", "eidbaooo"))
+	fmt.Println(checkInclusion("", "eidbaooo"))
 }
