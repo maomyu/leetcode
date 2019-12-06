@@ -62,7 +62,19 @@ func checkInclusion_one(s1 string, s2 string) bool {
 	if len(s1) == 0 || len(s2) == 0 || len(s1) > len(s2) {
 		return false
 	}
-
+	// 定义两个map存放次数
+	var m1 map[rune]int
+	var m2 map[rune]int
+	m1 = make(map[rune]int, len(s1))
+	m2 = make(map[rune]int, len(s1))
+	// 计算出s1中各个字符的个数
+	for _, v := range s1 {
+		if _, ok := m1[v]; ok {
+			m1[v]++
+		} else {
+			m1[v] = 1
+		}
+	}
 	// 循环遍历长字符串
 	for i, _ := range s2 {
 		// 结束条件
@@ -71,32 +83,29 @@ func checkInclusion_one(s1 string, s2 string) bool {
 		}
 		// 开始滑动窗口,获得需要比较的字符串
 		str := s2[i : i+len(s1)]
-		return StringContain(str, s1)
-	}
-	return true
-}
-
-// 蛮力轮询
-func StringContain(a string, b string) bool {
-	ar := []rune(a)
-	br := []rune(b)
-	// 用短字符串去寻找长字符串进行比较，因此主循环用短字符串进行控制
-	for i := 0; i < len(br); i++ {
-		// 定义一个 j 用来每次循环都要保证从 0 开始,j 代表 ar的下表
-		j := 0
-		// 循环长字符串
-		for j = 0; j < len(ar) && br[i] != ar[j]; j++ {
-
+		m2 = make(map[rune]int, len(s1))
+		for _, v := range str {
+			if _, ok := m2[v]; ok {
+				m2[v]++
+			} else {
+				m2[v] = 1
+			}
 		}
-		fmt.Println(j)
-		// 如果在遍历的过程中遇到不符合情况的字符，则上一个循环会比较到 ar 最后，可用 j 作为判断
-		// 如果在循环的过程中找到相同字符，第二个循环会提前结束
-		if j >= len(ar) {
-			return false
+		z := 0
+		for k, _ := range m1 {
+			if m1[k] == m2[k] {
+				z++
+			}
+		}
+		if z == len(m1) {
+			return true
 		}
 	}
-	return true
+	return false
 }
+
+// "hello"
+// "ooolleoooleh"
 func main() {
-	fmt.Println(checkInclusion_one("adc", "dda"))
+	fmt.Println(checkInclusion_one("ab", "eidbaooo"))
 }
