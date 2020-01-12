@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-// 思路1，倒叙遍历
+// 倒叙遍历思路
 func reverseStr(str string) string {
 	if len(str) == 0 {
 		return ""
