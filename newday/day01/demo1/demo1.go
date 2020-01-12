@@ -13,7 +13,6 @@ func removeDuplicates(nums []int) int {
 		if nums[i] != nums[length] {
 			length++
 			nums[length] = nums[i]
-			fmt.Println(nums)
 		}
 	}
 
