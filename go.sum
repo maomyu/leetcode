@@ -1,0 +1,4 @@
+github.com/go-stack/stack v1.8.0 h1:5SgMzNM5HxrEjV0ww2lTmX6E2Izsfxas4+YHWRs3Lsk=
+github.com/go-stack/stack v1.8.0/go.mod h1:v0f6uXyyMGvRgIKkXu+yp6POWl0qKG85gN/melR3HDY=
+github.com/songtianyi/rrframework v0.0.0-20200114092846-72cf894d46b3 h1:X9hoWOQoGRDTjeaC7mbGfWx1iqUaPFnX9P70tBiX2P0=
+github.com/songtianyi/rrframework v0.0.0-20200114092846-72cf894d46b3/go.mod h1:dokkfs7EgRLOKxUr574yAFv6Y0yDRThqYMcEHQ36fpY=
