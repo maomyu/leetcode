@@ -24,3 +24,6 @@
 - [实现strStr](https://github.com/yuwe1/leetcode/blob/master/newday/day02/demo7/demo7.go)
 - [外观数](https://github.com/yuwe1/leetcode/blob/master/newday/day02/demo8/demo8.go)
 - [最长公共前缀](https://github.com/yuwe1/leetcode/blob/master/newday/day02/demo9/demo9.go)
+
+#### 链表
+- [删除倒数第k个结点](https://github.com/yuwe1/leetcode/blob/master/newday/day03/demo1/demo1.go)
