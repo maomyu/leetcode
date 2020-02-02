@@ -18,6 +18,7 @@ func createLink(data []int, index int) (head *ListNode) {
 }
 
 // 删除倒数第K个结点
+//
 func removeNthFromEnd(head *ListNode, k int) *ListNode {
 	if k == 0 {
 		return head
