@@ -17,6 +17,6 @@ func maxProfit(prices []int) int {
 
 }
 func main() {
-	data := []int{1, 2, 3, 4, 5}
+	data := []int{1, 6, 9, 13, 20}
 	fmt.Println(maxProfit(data))
 }
