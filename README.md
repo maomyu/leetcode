@@ -34,3 +34,4 @@
 - [二叉树的最大深度](https://github.com/yuwe1/leetcode/blob/master/newday/day04/demo1/demo1.go)
 - [验证二叉搜索树](https://github.com/yuwe1/leetcode/blob/master/newday/day04/demo2/demo2.go)
 - [对称二叉树](https://github.com/yuwe1/leetcode/blob/master/newday/day04/demo3/demo3.go)
+- [有序数组转换成二叉搜索树](https://github.com/yuwe1/leetcode/blob/master/newday/day04/demo4/demo4.go)
