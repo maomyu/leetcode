@@ -10,6 +10,8 @@ type TreeNode struct {
 func isSymmetric(root *TreeNode) bool {
 	return isMicro(root, root)
 }
+
+// 画图理解
 func isMicro(left *TreeNode, right *TreeNode) bool {
 	if left == nil && right == nil {
 		return true
